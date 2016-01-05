@@ -1,5 +1,5 @@
 import defer from 'promise-defer';
-import includes from 'lodash/collection/includes';
+import contains from 'lodash.contains';
 
 export default function PromiseAuto(tasks, Promise) {
   if (Promise == null) {
@@ -28,7 +28,7 @@ export default function PromiseAuto(tasks, Promise) {
     var requires = taskDef.slice(0, taskDef.length - 1);
     requires.forEach(req => {
       var deps = tasks[req].slice(0, tasks[req].length - 1);
-      if (includes(deps, name)) {
+      if (contains(deps, name)) {
         throw new Error('Has cyclic dependencies');
       }
     });
