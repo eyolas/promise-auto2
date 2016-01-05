@@ -1,6 +1,6 @@
 {
   "name": "promise-auto2",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "async's .auto() for promises",
   "main": "lib/index.js",
   "scripts": {

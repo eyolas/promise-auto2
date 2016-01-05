@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/eyolas/promise-auto.svg?branch=master)](https://travis-ci.org/eyolas/promise-auto)
+
 # Promise-auto
 
 async's .auto() for promises
