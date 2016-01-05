@@ -36,7 +36,7 @@ PromiseAuto({
       }, 5000);
     });
   },
-  write_file: ['get_data', 'make_folder', /*'email_link',*/ function(results){
+  write_file: ['get_data', 'make_folder', function(results){
     console.log('in write_file', JSON.stringify(results), results);
     // once there is some data and the directory exists,
     // write the data to a file in the directory
