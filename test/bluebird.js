@@ -1,4 +1,5 @@
 import PromiseAuto from '../';
+import bluebird from 'bluebird';
 import {promiseDelay} from './promiseUtils';
 import chai from 'chai';
 import chaiAsPromised from 'chai-as-promised';
@@ -17,7 +18,7 @@ describe('auto', () => {
       task4: ['task1', 'task2', () => callOrder.push('task4')],
       task5: ['task2', () => promiseDelay(200).then(() => callOrder.push('task5'))],
       task6: ['task2', () => promiseDelay(100).then(() => callOrder.push('task6'))]
-    }).then(() => {
+    }, bluebird).then(() => {
       expect(callOrder).to.deep.equal(['task2', 'task3', 'task6', 'task5', 'task1', 'task4']);
     });
   });
@@ -29,7 +30,7 @@ describe('auto', () => {
       task2: () => promiseDelay(200).then(() => callOrder.push('task2')),
       task3: ['task2', () => callOrder.push('task3')],
       task4: ['task1', 'task2', () => callOrder.push('task4')]
-    }).then(() => {
+    }, bluebird).then(() => {
       expect(callOrder).to.deep.equal(['task2', 'task3', 'task1', 'task4']);
     });
   });
@@ -72,7 +73,7 @@ describe('auto', () => {
           return 'task4';
         }
       ]
-    }).then((results) => {
+    }, bluebird).then((results) => {
       expect(callOrder).to.deep.equal(['task2', 'task3', 'task1', 'task4']);
       expect(results).to.deep.equal({
         task1: ['task1a', 'task1b'],
@@ -83,7 +84,7 @@ describe('auto', () => {
     });
   });
 
-  it('runs with an empty object', () => PromiseAuto({}));
+  it('runs with an empty object', () => PromiseAuto({}, bluebird));
 
   it('errors out properly', () => {
     return assert.isRejected(PromiseAuto({
@@ -93,7 +94,7 @@ describe('auto', () => {
       task3: function() {
         throw new Error('testerror2');
       }
-    }), /^Error: testerror$/);
+    }, bluebird), /^Error: testerror$/);
   });
 
   it('cyclic dependencies error', () => {
@@ -101,7 +102,7 @@ describe('auto', () => {
       PromiseAuto({
         task1: ['task2', () => null],
         task2: ['task1', () => null]
-      });
+      }, bluebird);
     }, 'Has cyclic dependencies');
   });
 });
