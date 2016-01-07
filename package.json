@@ -7,8 +7,16 @@
     "test": "mocha --recursive --compilers js:babel-register",
     "build": "babel src -d lib"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eyolas/promise-auto2.git"
+  },
   "author": "David Touzet <dtouzet@gmail.com>",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eyolas/promise-auto2/issues"
+  },
+  "homepage": "https://github.com/eyolas/promise-auto2#readme",
   "devDependencies": {
     "babel-cli": "^6.3.17",
     "babel-eslint": "^4.1.3",
