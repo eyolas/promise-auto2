@@ -30,7 +30,7 @@
     "mocha": "^2.3.4"
   },
   "dependencies": {
-    "lodash.contains": "^2.4.3",
+    "lodash": "^4.4.0",
     "promise-defer": "^1.0.0"
   }
 }
