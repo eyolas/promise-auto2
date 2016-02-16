@@ -1,8 +1,14 @@
-[![Build Status](https://travis-ci.org/eyolas/promise-auto.svg?branch=master)](https://travis-ci.org/eyolas/promise-auto)
+[![Build Status](https://travis-ci.org/eyolas/promise-auto2.svg?branch=master)](https://travis-ci.org/eyolas/promise-auto2)
 
-# Promise-auto
+# Promise-auto2
 
 async's .auto() for promises
+
+## Install
+
+```sh
+npm install promise-auto2
+```
 
 ## Usage
 
@@ -58,4 +64,3 @@ PromiseAuto({
     console.log('err = ', err);
 });
 ```
-
